@@ -361,6 +361,8 @@ a:focus {
 
   .feature_container {
     display: flex;
+    align-items: center;
+    justify-content: center;
 
     .box {
       flex: 1;
