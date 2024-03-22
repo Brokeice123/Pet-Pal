@@ -115,7 +115,7 @@
         .then((userCredential) => {
             // User registered successfully, store details in Firestore
             const user = userCredential.user;
-            setDoc(doc(db, "Users", user.uid), {
+            setDoc(doc(db, "Users_Pet-Sitters", user.uid), {
                 name: name,
                 email: email,
                 phone: phone,
