@@ -1,19 +1,13 @@
 <!DOCTYPE html>
-<!-- Created by CodingLab |www.youtube.com/c/CodingLabYT-->
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="UTF-8">
-    <!--<title> Login and Registration Form in HTML & CSS | CodingLab </title>-->
-    <link rel="stylesheet" href="css/registration.css">
-    <!-- Fontawesome CDN Link -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Firebase SDK -->
-    <script src="https://www.gstatic.com/firebasejs/9.6.6/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.6/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.6/firebase-firestore.js"></script>
-  </head>
-   </head>
+<head>
+  <meta charset="UTF-8">
+  <!--<title> Login and Registration Form in HTML & CSS | CodingLab </title>-->
+  <link rel="stylesheet" href="css/registration.css">
+  <!-- Fontawesome CDN Link -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
 <body>
   <div class="container">
     <input type="checkbox" id="flip">
@@ -34,64 +28,159 @@
       </div>
     </div>
     <div class="forms">
-        <div class="form-content">
-          <div class="login-form">
-            <div class="title">Login</div>
-          <form action="#">
+      <div class="form-content">
+        <div class="login-form">
+          <div class="title">Login</div>
+          <form id="login-form" action="#">
             <div class="input-boxes">
               <div class="input-box">
                 <i class="fas fa-envelope"></i>
-                <input type="text" placeholder="Enter your email" required>
+                <input id="login-email" type="text" placeholder="Enter your email" required>
               </div>
               <div class="input-box">
                 <i class="fas fa-lock"></i>
-                <input type="password" placeholder="Enter your password" required>
+                <input id="login-password" type="password" placeholder="Enter your password" required>
               </div>
               <div class="text"><a href="#">Forgot password?</a></div>
               <div class="button input-box">
-                <input type="submit" value="Sumbit">
+                <input type="submit" value="Submit">
               </div>
-              <div class="text sign-up-text">Don't have an account? <label for="flip">Sigup now</label></div>
+              <div class="text sign-up-text">Don't have an account? <label for="flip">Signup now</label></div>
             </div>
-        </form>
-      </div>
+          </form>
+        </div>
         <div class="signup-form">
           <div class="title">Signup</div>
-        <form action="#">
+          <form id="signup-form" action="#">
             <div class="input-boxes">
               <div class="input-box">
                 <i class="fas fa-user"></i>
-                <input type="text" placeholder="Enter your full name" required>
+                <input id="signup-name" type="text" placeholder="Enter your full name" required>
               </div>
               <div class="input-box">
                 <i class="fas fa-envelope"></i>
-                <input type="text" placeholder="Enter your email" required>
+                <input id="signup-email" type="text" placeholder="Enter your email" required>
               </div>
               <div class="input-box">
                 <i class="fas fa-phone-alt"></i>
-                <input type="text" placeholder="Enter your phone number" required>
+                <input id="signup-phone" type="text" placeholder="Enter your phone number" required>
               </div>
               <div class="input-box">
                 <i class="fas fa-id-card"></i>
-                <input type="text" placeholder="Enter your ID" required>
+                <input id="signup-id" type="text" placeholder="Enter your ID" required>
               </div>
               <div class="input-box">
                 <i class="fas fa-lock"></i>
-                <input type="password" placeholder="Enter your password" required>
+                <input id="signup-password" type="password" placeholder="Enter your password" required>
               </div>
               <div class="input-box">
                 <i class="fas fa-lock"></i>
-                <input type="password" placeholder="Confirm your password" required>
+                <input id="confirm-password" type="password" placeholder="Confirm your password" required>
               </div>
               <div class="button input-box">
-                <input type="submit" value="Sumbit">
+                <input type="submit" value="Submit">
               </div>
               <div class="text sign-up-text">Already have an account? <label for="flip">Login now</label></div>
             </div>
-      </form>
-    </div>
-    </div>
+          </form>
+        </div>
+      </div>
     </div>
   </div>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-analytics.js";
+    import { getFirestore, setDoc, doc } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore.js";
+    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyBhn3JM9ws_XxUV3G-V7qqIwCN__5SYDl4",
+      authDomain: "pet-pal-c8884.firebaseapp.com",
+      projectId: "pet-pal-c8884",
+      storageBucket: "pet-pal-c8884.appspot.com",
+      messagingSenderId: "356137247856",
+      appId: "1:356137247856:web:93c85f28a5cfc7fb6140b5",
+      measurementId: "G-GGW6V4GTL1"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+    const db = getFirestore(app);
+    const auth = getAuth(app); // Add this line to get the auth object
+
+    // Function to register a new user and store details in Firestore
+    function registerUser(name, email, phone, id, password) {
+        createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+            // User registered successfully, store details in Firestore
+            const user = userCredential.user;
+            setDoc(doc(db, "Users", user.uid), {
+                name: name,
+                email: email,
+                phone: phone,
+                id: id
+            })
+            .then(() => {
+                console.log("User details stored in Firestore");
+                // You can redirect the user to a new page or perform other actions here
+                alert("Registration successful!");
+                window.location.href = "pet-sitter_dashboard.html";
+            })
+            .catch((error) => {
+                console.error("Error storing user details:", error);
+            });
+        })
+        .catch((error) => {
+            // An error occurred during registration
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            console.error("Registration failed:", errorMessage);
+            // Show an error message to the user
+            alert(errorMessage);
+        });
+    }
+
+    // Function to authenticate and log in a user
+    function loginUser(email, password) {
+        signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+            // User logged in successfully
+            const user = userCredential.user;
+            console.log("User logged in successfully:", user);
+            alert("Login successful!");
+            // You can redirect the user to a new page or perform other actions here
+            window.location.href = "pet-sitter_dashboard.html";
+        })
+        .catch((error) => {
+            // An error occurred during login
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            console.error("Login failed:", errorMessage);
+            // Show an error message to the user
+            alert("Login failed. Please try again.");
+        });
+    }
+
+    // Add event listener for the registration form submission
+    document.getElementById("signup-form").addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent the default form submission
+        const name = document.getElementById("signup-name").value;
+        const email = document.getElementById("signup-email").value;
+        const phone = document.getElementById("signup-phone").value;
+        const id = document.getElementById("signup-id").value;
+        const password = document.getElementById("signup-password").value;
+        registerUser(name, email, phone, id, password);
+    });
+
+    // Add event listener for the login form submission
+    document.getElementById("login-form").addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent the default form submission
+        const email = document.getElementById("login-email").value;
+        const password = document.getElementById("login-password").value;
+        loginUser(email, password);
+    });
+
+  </script>
 </body>
 </html>
