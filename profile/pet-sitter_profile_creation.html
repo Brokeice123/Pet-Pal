@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
+	<link rel="icon" type="image/png" href="assets/img/favicon.png">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<title>Pet Sitter Profile Creation</title>
+
+	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+
+	<!--     Fonts and icons     -->
+	<link href="http://netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.css" rel="stylesheet">
+
+	<!-- CSS Files -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="assets/css/gsdk-bootstrap-wizard.css" rel="stylesheet" />
+
+	<!-- CSS Just for demo purpose, don't include it in your project -->
+	<link href="assets/css/demo.css" rel="stylesheet" />
+
+</head>
+
+<body>
+<div class="image-container set-full-height" style="background-image: url('assets/img/wizard-city.jpg')">
+    <!--   Creative Tim Branding   -->
+    <a href="http://creative-tim.com">
+         <div class="logo-container">
+            <div class="logo">
+                <img src="assets/img/new_logo.png">
+            </div>
+            <div class="brand">
+                Creative Tim
+            </div>
+        </div>
+    </a>
+
+    <!--   Big container   -->
+    <div class="container">
+        <div class="row">
+        <div class="col-sm-8 col-sm-offset-2">
+
+            <!--      Wizard container        -->
+            <div class="wizard-container">
+                <div class="card wizard-card" data-color="green" id="wizard">
+                <form action="javascript:void(0)" method="" id="sitter-form">
+                <!--        You can switch ' data-color="green" '  with one of the next bright colors: "blue", "green", "orange", "red"          -->
+
+                    	<div class="wizard-header">
+                        	<h3>
+                        	   <b>Complete</b> your profile<br>
+                        	   <small>This information will let us know more about you as a Pet Sitter.</small>
+                        	</h3>
+                    	</div>
+						<div class="wizard-navigation">
+							<ul>
+                                <li><a href="#picture" data-toggle="tab">Profile Picture</a></li>
+	                            <li><a href="#location" data-toggle="tab">Location</a></li>
+	                            <li><a href="#facilities" data-toggle="tab">Facilities</a></li>
+	                            <li><a href="#description" data-toggle="tab">Description</a></li>
+	                        </ul>
+						</div>
+
+                        <div class="tab-content">
+                            <div class="tab-pane" id="picture">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <h4 class="info-text">Choose your profile picture</h4>
+                                    </div>
+                                    <div class="col-sm-6 col-sm-offset-3">
+                                        <div class="picture-container">
+                                            <div class="picture">
+                                                <img src="assets/img/default-avatar.png" class="picture-src" id="wizardPicturePreview" title="">
+                                                <input type="file" id="wizard-picture">
+                                            </div>
+                                            <h6 class="description">Choose profile picture</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-5 col-sm-offset-1">
+                                        <div class="form-group">
+                                            <label>Name <small>(required)</small></label>
+                                            <input id="profile-name" type="text" class="form-control" placeholder="Name" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-5">
+                                        <div class="form-group">
+                                            <label>Phone Number <small>(required)</small></label>
+                                            <input id="profile-phone" type="text" class="form-control" placeholder="Phone Number" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-5 col-sm-offset-1">
+                                        <div class="form-group">
+                                            <label>Email <small>(required)</small></label>
+                                            <input id="profile-email" type="email" class="form-control" placeholder="Email" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-5">
+                                        <div class="form-group">
+                                            <label>Confirm Email <small>(required)</small></label>
+                                            <input type="email" class="form-control" placeholder="Confirm Email" required>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="tab-pane" id="location">
+                              <div class="row">
+                                  <div class="col-sm-12">
+                                    <h4 class="info-text"> Let's start with the basic details</h4>
+                                  </div>
+                                  <div class="col-sm-12">
+                                       <div class="form-group">
+                                            <label>City</label><br>
+                                             <select id="profile-city" name="city" class="form-control">
+                                                <option disabled="" selected="">- city -</option>
+                                                <option value="Nairobi">Nairobi</option>
+                                                <option value="Mombasa">Mombasa</option>
+                                                <option value="Kisumu">Kisumu</option>
+                                                <option value="Naivasha">Naivasha</option>
+                                                <option value="Kisii">Kisii</option>
+                                                <option value="Eldoret">Eldoret</option>
+                                                <option value="Nakuru">Nakuru</option>
+                                                <option value="Thika">Thika</option>
+                                            </select>
+                                          </div>
+                                  </div>
+                                  <div class="col-sm-12">
+                                      <div class="form-group">
+                                          <label>Number of Pet's able to sit</label>
+                                          <select class="form-control" id="profile-pets">
+                                            <option disabled="" selected="">- Pets -</option>
+                                            <option>1 Pet</option>
+                                            <option>2 Pets </option>
+                                            <option>3 Pets</option>
+                                            <option>4 Pets</option>
+                                            <option>5 Pets</option>
+                                            <option>6+ Pets</option>
+                                          </select>
+                                      </div>
+                                  </div>
+                                  <div class="col-sm-12">
+                                      <div class="form-group">
+                                          <label>Sitting Price per hr</label>
+                                          <div class="input-group">
+                                              <input id="profile-price" type="text" class="form-control" placeholder="Sitting price per hr">
+                                              <span class="input-group-addon">$</span>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                            </div>
+                            
+                            <div class="tab-pane" id="facilities">
+                                <h4 class="info-text">Tell us more about facilities. </h4>
+                                <div class="row">
+                                    <div class="col-sm-5 col-sm-offset-1">
+                                      <div class="form-group">
+                                          <label>Your place has a Pet friendly environment</label>
+                                          <select class="form-control" id="profile-pet-environment">
+                                            <option disabled="" selected="">- response -</option>
+                                            <option>Yes</option>
+                                            <option>No</option>
+                                          </select>
+                                      </div>
+                                    </div>
+                                    <div class="col-sm-5">
+                                      <div class="form-group">
+                                          <label>Your place has adequate Pet gromming equipment</label>
+                                          <select class="form-control" id="profile-pet-grooming">
+                                            <option disabled="" selected="">- response -</option>
+                                            <option>Yes</option>
+                                            <option>No </option>
+                                          </select>
+                                      </div>
+                                     </div>
+                                     <div class="col-sm-5 col-sm-offset-1">
+                                      <div class="form-group">
+                                          <label>Does your place have access to outdoor areas</label>
+                                          <select class="form-control" id="profile-pet-outdoor">
+                                            <option disabled="" selected="">- response -</option>
+                                            <option>Yes</option>
+                                            <option>No </option>
+                                          </select>
+                                       </div>
+                                      </div>
+                                      <div class="col-sm-5">
+                                       <div class="form-group">
+                                          <label>Does your place have Pet monitoring systems?</label>
+                                          <select class="form-control" id="profile-pet-monitor">
+                                            <option disabled="" selected="">- response -</option>
+                                            <option>Yes</option>
+                                            <option>No </option>
+                                          </select>
+                                       </div>
+                                      </div>
+                                      <div class="col-sm-5 col-sm-offset-1">
+                                        <div class="form-group">
+                                            <label>Does your place have comfortable resting areas</label>
+                                            <select class="form-control" id="profile-pet-rest">
+                                              <option disabled="" selected="">- response -</option>
+                                              <option>Yes</option>
+                                              <option>No </option>
+                                            </select>
+                                         </div>
+                                        </div>
+                                        <div class="col-sm-5">
+                                         <div class="form-group">
+                                            <label>Does your place have Pet-safe cleaning equipment?</label>
+                                            <select class="form-control" id="profile-pet-clean">
+                                              <option disabled="" selected="">- response -</option>
+                                              <option>Yes</option>
+                                              <option>No </option>
+                                            </select>
+                                         </div>
+                                        </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="description">
+                                <div class="row">
+                                    <h4 class="info-text"> Drop us a small description about yourself </h4>
+                                    <div class="col-sm-6 col-sm-offset-1">
+                                         <div class="form-group">
+                                            <label>Pet Sitter description</label>
+                                            <textarea class="form-control" placeholder="" rows="9" id="profile-description">
+
+                                            </textarea>
+                                          </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                         <div class="form-group">
+                                            <label>Example</label>
+                                            <p class="description">"I'm a pet sitter with a heart for pets and a passion for making sure your furry friend is loved and cared for while you're away. I provide personalized, professional care that ensures your pet is happy and healthy, and I'm available to answer any questions or concerns you may have. Let me help you find a great home for your pet!"</p>
+                                          </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="wizard-footer">
+                            	<div class="pull-right">
+                                    <input type='button' class='btn btn-next btn-fill btn-success btn-wd btn-sm' name='next' value='Next' />
+                                    <input type='submit' class='btn btn-finish btn-fill btn-success btn-wd btn-sm' name='finish' value='Finish' />
+
+                                </div>
+                                <div class="pull-left">
+                                    <input type='button' class='btn btn-previous btn-fill btn-default btn-wd btn-sm' name='previous' value='Previous' />
+                                </div>
+                                <div class="clearfix"></div>
+                        </div>
+
+                    </form>
+                </div>
+            </div> <!-- wizard container -->
+        </div>
+        </div> <!-- row -->
+    </div> <!--  big container -->
+
+    <div class="footer">
+        <div class="container">
+             Made with <i class="fa fa-heart heart"></i> by <a href="http://www.creative-tim.com">Creative Tim</a>. Free download <a href="http://www.creative-tim.com/product/bootstrap-wizard">here.</a>
+        </div>
+    </div>
+</div>
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-analytics.js";
+    import { getFirestore, setDoc, doc } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
+    import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-storage.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyBhn3JM9ws_XxUV3G-V7qqIwCN__5SYDl4",
+      authDomain: "pet-pal-c8884.firebaseapp.com",
+      projectId: "pet-pal-c8884",
+      storageBucket: "pet-pal-c8884.appspot.com",
+      messagingSenderId: "356137247856",
+      appId: "1:356137247856:web:93c85f28a5cfc7fb6140b5",
+      measurementId: "G-GGW6V4GTL1"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+    const db = getFirestore(app);
+    const storage = getStorage(app);
+
+    // Function to record a new sitter and store details in Firestore
+    function recordSitter(pictureURL, name, phone, email, city, pets, price, environment, grooming, outdoor, monitor, rest, clean, description) {
+        const newSitter = doc(db, "Sitters_Profile", name);
+        setDoc(newSitter, {
+            name: name,
+            pictureURL: pictureURL,
+            phone: phone,
+            email: email,
+            city: city,
+            pets: pets,
+            price: price,
+            environment: environment,
+            grooming: grooming,
+            outdoor: outdoor,
+            monitor: monitor,
+            rest: rest,
+            clean: clean,
+            description: description
+        })
+        .then(() => {
+            console.log("Sitter profile created successfully!");
+            // You can redirect the user to a new page or perform other actions here
+            alert("Profile created successfully!");
+            window.location.href = "../pet-sitter_dashboard.html";
+        })
+        .catch((error) => {
+            console.error("Error creating sitter profile:", error);
+        });
+    }
+
+    // Function to upload profile picture to Firebase Storage
+    async function uploadProfilePicture(file) {
+        const storageRef = ref(storage, 'profile_pictures/' + file.name);
+        
+        try {
+            // Upload the file to Firebase Storage
+            const snapshot = await uploadBytes(storageRef, file);
+            console.log('Uploaded a file:', snapshot.ref.fullPath);
+
+        // Get the download URL for the file
+        const downloadURL = await getDownloadURL(storageRef);
+        console.log('File available at', downloadURL);
+        
+        return downloadURL; // Return the download URL
+        } catch (error) {
+            console.error('Error uploading file:', error);
+            throw error; // Rethrow the error for handling elsewhere
+        }
+    }
+
+    // Define an async function to handle the form submission
+    async function handleFormSubmission() {
+        const picture = document.getElementById("wizard-picture").files[0];
+        const name = document.getElementById("profile-name").value;
+        const phone = document.getElementById("profile-phone").value;
+        const email = document.getElementById("profile-email").value;
+        const city = document.getElementById("profile-city").value;
+        const pets = document.getElementById("profile-pets").value;
+        const price = document.getElementById("profile-price").value;
+        const environment = document.getElementById("profile-pet-environment").value;
+        const grooming = document.getElementById("profile-pet-grooming").value;
+        const outdoor = document.getElementById("profile-pet-outdoor").value;
+        const monitor = document.getElementById("profile-pet-monitor").value;
+        const rest = document.getElementById("profile-pet-rest").value;
+        const clean = document.getElementById("profile-pet-clean").value;
+        const description = document.getElementById("profile-description").value;
+
+        try {
+            // Upload profile picture and get the URL
+            const pictureURL = await uploadProfilePicture(picture);
+
+            // Record sitter details in Firestore
+            recordSitter(pictureURL, name, phone, email, city, pets, price, environment, grooming, outdoor, monitor, rest, clean, description);
+        } catch (error) {
+            console.error("Error handling form submission:", error);
+            // Handle errors gracefully
+        }
+    }
+
+    // Event listener for the form submission
+    document.getElementById("sitter-form").addEventListener("submit", (event) => {
+        event.preventDefault();
+        handleFormSubmission();
+    });
+
+</script>
+
+
+</body>
+
+	<!--   Core JS Files   -->
+	<script src="assets/js/jquery-2.2.4.min.js" type="text/javascript"></script>
+	<script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
+	<script src="assets/js/jquery.bootstrap.wizard.js" type="text/javascript"></script>
+
+	<!--  Plugin for the Wizard -->
+	<script src="assets/js/gsdk-bootstrap-wizard.js"></script>
+
+	<!--  More information about jquery.validate here: http://jqueryvalidation.org/	 -->
+	<script src="assets/js/jquery.validate.min.js"></script>
+
+</html>
+
